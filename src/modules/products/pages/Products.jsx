@@ -13,6 +13,7 @@ import { createProductRequest, deleteProductRequest, updateProductRequest } from
 import { gooeyToast } from 'goey-toast'
 import { useAuthStore } from '../../auth/store/useAuthStore'
 import { hasPermission, PERMISSIONS } from '../../../config/permissions'
+import { TitleSection } from '../../../components/TitleSection'
 
 export const Products = () => {
     const { getElements, data } = useGet('/api/v1/products')
@@ -215,7 +216,8 @@ export const Products = () => {
     return (
         <div>
             <div className='flex justify-between bg-white rounded-lg px-4 py-2 mb-2'>
-                <h2 className='font-bold text-lg'>Productos</h2>
+                <TitleSection partOne='Produc' partTwo='tos' />
+
                 <div className='flex justify-center items-center space-x-5'>
                     {canCreateProduct && (
                         <button onClick={openCreate} className='text-green-500 cursor-pointer'>

@@ -5,6 +5,7 @@ import { Box } from 'lucide-react'
 import { CircleDollarSign } from 'lucide-react'
 import { useGet } from '../../../hooks/useGet'
 import { useEffect } from 'react'
+import { APP } from '../../../config/configApp'
 
 export const Dashboard = () => {
     const dateCurrent = new Date().toLocaleDateString("es-GT", {
@@ -25,7 +26,9 @@ export const Dashboard = () => {
         <div className="flex-1 overflow-y-auto lg:p-8 dark:bg-dark-bg bg-slate-200/40 rounded-lg pt-4 pr-4 pb-4 pl-4">
             <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                 <div className="">
-                    <h1 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">Bienvenido</h1>
+                    <h1 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+                        Bienvenido a <strong className='text-primary'>Nexa</strong><strong className='text-secondary'>ERP</strong>
+                    </h1>
                     <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Resumen</p>
                 </div>
                 <div className="flex items-center gap-3">

@@ -12,6 +12,7 @@ import { InputSelect } from '../../../components/InputSelect'
 import { Skeleton } from '../../../components/Skeleton'
 import { gooeyToast } from 'goey-toast'
 import { Modal } from '../../../components/Modal'
+import { TitleSection } from '../../../components/TitleSection'
 
 export const Users = () => {
     const { data, isLoading, error, getElements } = useGet('/api/v1/users')
@@ -216,7 +217,8 @@ export const Users = () => {
     return (
         <div>
             <div className='flex justify-between bg-white rounded-lg px-4 py-2 mb-2'>
-                <h2 className='font-bold text-lg'>Usuarios</h2>
+                <TitleSection partOne='Usuar' partTwo='ios' />
+                
                 <div className='flex justify-center items-center space-x-5'>
                     <button onClick={openCreate} className='text-green-500 cursor-pointer'>
                         <UserRoundPlus />

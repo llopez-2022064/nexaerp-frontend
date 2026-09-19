@@ -9,6 +9,7 @@ import { useAuthStore } from '../../auth/store/useAuthStore'
 import { hasPermission, PERMISSIONS } from '../../../config/permissions'
 import { createSaleRequest } from '../service/sales'
 import { Modal } from '../../../components/Modal'
+import { TitleSection } from '../../../components/TitleSection'
 
 export const Sales = () => {
     const { getElements: getSales, data: sales } = useGet('/api/v1/sales')
@@ -102,7 +103,7 @@ export const Sales = () => {
     return (
         <div>
             <div className="flex justify-between bg-white rounded-lg px-4 py-2 mb-2">
-                <h2 className="font-bold text-lg">Ventas</h2>
+                <TitleSection partOne='Ven' partTwo='tas' />
 
                 <div className="flex justify-center items-center space-x-5">
                     {canCreateSale && (

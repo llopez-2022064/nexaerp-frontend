@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+* {
+    font-family: "Sono", monospace;
+}
+
+@theme {
+    --color-primary: #0B1F44;
+    --color-secondary: #2563EB;
+    --color-success: #06B6D4;
+}

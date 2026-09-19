@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { useAuthStore } from '../../../modules/auth/store/useAuthStore'
 import { hasPermission, PERMISSIONS } from '../../../config/permissions'
+import { TitleSection } from '../../../components/TitleSection'
 
 const REPORTS = [
     {
@@ -51,7 +52,8 @@ export const Reports = () => {
     return (
         <section className="rounded-xl bg-slate-200/40 p-4 lg:p-8">
             <header className="mb-6">
-                <h1 className="text-2xl font-semibold tracking-tight text-slate-900">Reportes</h1>
+                <TitleSection partOne='Repor' partTwo='tes' />
+
                 <p className="mt-1 text-sm text-slate-500">
                     Selecciona un reporte y el formato que deseas generar.
                 </p>
