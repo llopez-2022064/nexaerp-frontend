@@ -52,12 +52,6 @@ export const MainLayout = () => {
             requiredPermissions: [PERMISSIONS.VIEW_INVENTORY]
         },
         {
-            name: 'Historial de Movimientos',
-            icon: ClipboardClock,
-            url: '/history',
-            requiredPermissions: [PERMISSIONS.VIEW_INVENTORY_HISTORY]
-        },
-        {
             name: 'Productos',
             icon: PackageSearch,
             url: '/products',
@@ -74,6 +68,12 @@ export const MainLayout = () => {
             icon: BanknoteArrowUp,
             url: '/sales',
             requiredPermissions: [PERMISSIONS.VIEW_SALES]
+        },
+        {
+            name: 'Historial de Movimientos',
+            icon: ClipboardClock,
+            url: '/history',
+            requiredPermissions: [PERMISSIONS.VIEW_INVENTORY_HISTORY]
         },
         {
             name: 'Reportes',

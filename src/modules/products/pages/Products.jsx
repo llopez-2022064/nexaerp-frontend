@@ -144,7 +144,7 @@ export const Products = () => {
     }
 
     const handleDelete = async (id) => {
-        const confirmed = window.confirm('Desea eliminar este usuario?')
+        const confirmed = window.confirm('Desea eliminar este producto?')
 
         if (!confirmed) return
 
@@ -160,7 +160,7 @@ export const Products = () => {
             });
             return true
         } catch (error) {
-            gooeyToast.error('Error al eliminar el usuario', {
+            gooeyToast.error('Error al eliminar el producto', {
                 description: 'No se pudo eliminar el registro. Inténtalo otra vez',
                 borderColor: '#E0E0E0',
                 borderWidth: 1.5,
@@ -185,7 +185,7 @@ export const Products = () => {
             cell: (item) => item.brand
         },
         {
-            header: 'Precio Unitario',
+            header: 'Precio de Venta',
             cell: (item) => (
                 <span>
                     {APP.currency} {item.sellingPrice}

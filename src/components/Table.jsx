@@ -20,7 +20,7 @@ export const Table = ({ columns = [], data = [] }) => {
                             {columns.map((column) => (
                                 <td
                                     key={column.header}
-                                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    className="px-6 py-4 whitespace-normal text-sm text-gray-500 max-w-xs wrap-break-word"
                                 >
                                     {column.cell(item, rowIndex)}
                                 </td>
