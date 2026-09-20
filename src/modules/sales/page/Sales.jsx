@@ -10,6 +10,9 @@ import { hasPermission, PERMISSIONS } from '../../../config/permissions'
 import { createSaleRequest } from '../service/sales'
 import { Modal } from '../../../components/Modal'
 import { TitleSection } from '../../../components/TitleSection'
+import { formatDate } from '../../../utils/formatearFechas'
+import { ButtonAdd } from '../../../components/ButtonAdd'
+import { ButtonRefresh } from '../../../components/ButtonRefresh'
 
 export const Sales = () => {
     const { getElements: getSales, data: sales } = useGet('/api/v1/sales')
@@ -91,7 +94,7 @@ export const Sales = () => {
         },
         {
             header: 'Fecha',
-            cell: (item) => item.date
+            cell: (item) => formatDate(item.date)
         }
     ]
 
@@ -102,27 +105,15 @@ export const Sales = () => {
 
     return (
         <div>
-            <div className="flex justify-between bg-white rounded-lg px-4 py-2 mb-2">
+            <div className="flex justify-between items-center bg-white rounded-lg px-5 py-2.5 mb-2">
                 <TitleSection partOne='Ven' partTwo='tas' />
 
                 <div className="flex justify-center items-center space-x-5">
                     {canCreateSale && (
-                        <button
-                            type="button"
-                            onClick={openCreate}
-                            className="text-green-500 cursor-pointer"
-                        >
-                            <CirclePlus />
-                        </button>
+                        <ButtonAdd functionOpenModal={openCreate} />
                     )}
 
-                    <button
-                        type="button"
-                        onClick={getSales}
-                        className="text-sky-400 cursor-pointer"
-                    >
-                        <RefreshCw className="hover:animate-spin" />
-                    </button>
+                    <ButtonRefresh functionRefresh={getSales} />
                 </div>
             </div>
 

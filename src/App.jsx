@@ -41,7 +41,7 @@ function App() {
               <Route path='/inventory' element={<Inventory />} />
             </Route>
             <Route element={<PermissionRoute requiredPermissions={[PERMISSIONS.VIEW_INVENTORY_HISTORY]} />}>
-              <Route path='/inventory/history' element={<InventoryHistory />} />
+              <Route path='/history' element={<InventoryHistory />} />
             </Route>
 
             <Route element={<PermissionRoute requiredPermissions={[PERMISSIONS.VIEW_SALES]} />}>

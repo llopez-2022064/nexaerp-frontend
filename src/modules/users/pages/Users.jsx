@@ -13,6 +13,9 @@ import { Skeleton } from '../../../components/Skeleton'
 import { gooeyToast } from 'goey-toast'
 import { Modal } from '../../../components/Modal'
 import { TitleSection } from '../../../components/TitleSection'
+import { ButtonAdd } from '../../../components/ButtonAdd'
+import { ButtonRefresh } from '../../../components/ButtonRefresh'
+import { formatDate } from '../../../utils/formatearFechas'
 
 export const Users = () => {
     const { data, isLoading, error, getElements } = useGet('/api/v1/users')
@@ -189,7 +192,8 @@ export const Users = () => {
         },
         {
             header: 'Fecha de Creación',
-            cell: (item) => item.createdAt
+            cell: (item) => formatDate(item.createdAt)
+            
         },
         {
             header: 'Acciones',
@@ -216,16 +220,12 @@ export const Users = () => {
 
     return (
         <div>
-            <div className='flex justify-between bg-white rounded-lg px-4 py-2 mb-2'>
+            <div className='flex justify-between items-center bg-white rounded-lg px-5 py-2.5 mb-2'>
                 <TitleSection partOne='Usuar' partTwo='ios' />
-                
+
                 <div className='flex justify-center items-center space-x-5'>
-                    <button onClick={openCreate} className='text-green-500 cursor-pointer'>
-                        <UserRoundPlus />
-                    </button>
-                    <button onClick={refreshUsers} className='text-sky-400 cursor-pointer'>
-                        <RefreshCw className='hover:animate-spin' />
-                    </button>
+                    <ButtonAdd functionOpenModal={openCreate} />
+                    <ButtonRefresh functionRefresh={refreshUsers} />
                 </div>
             </div>
 

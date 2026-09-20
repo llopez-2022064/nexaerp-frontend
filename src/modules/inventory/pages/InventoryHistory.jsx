@@ -3,6 +3,8 @@ import { Table } from '../../../components/Table'
 import { useGet } from '../../../hooks/useGet'
 import { RefreshCw } from 'lucide-react';
 import { TitleSection } from '../../../components/TitleSection';
+import { formatDate } from '../../../utils/formatearFechas';
+import { ButtonRefresh } from '../../../components/ButtonRefresh';
 
 export const InventoryHistory = () => {
     const { getElements, data, error, isLoading } = useGet('/api/v1/inventory/history');
@@ -26,19 +28,21 @@ export const InventoryHistory = () => {
         },
         {
             header: 'Fecha',
-            cell: (item) => item.date
+            cell: (item) => formatDate(item.date)
         },
     ]
 
+    const refreshMovements = () => {
+        getElements()
+    }
+
     return (
         <div>
-            <div className='flex justify-between bg-white rounded-lg px-4 py-2 mb-2'>
-                <TitleSection partOne='Historial de Inventa' partTwo='rio' />
-                
+            <div className='flex justify-between items-center bg-white rounded-lg px-5 py-2.5 mb-2'>
+                <TitleSection partOne='Historial de Movimien' partTwo='tos' />
+
                 <div className='flex justify-center items-center space-x-5'>
-                    <button className='text-sky-400 cursor-pointer'>
-                        <RefreshCw className='hover:animate-spin' />
-                    </button>
+                    <ButtonRefresh functionRefresh={getElements} />
                 </div>
             </div>
             <Table columns={columns} data={data} />

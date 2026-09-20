@@ -9,6 +9,9 @@ import { createShoppingRequest } from '../service/shopping'
 import { gooeyToast } from 'goey-toast'
 import { Modal } from '../../../components/Modal'
 import { TitleSection } from '../../../components/TitleSection'
+import { formatDate } from '../../../utils/formatearFechas'
+import { ButtonAdd } from '../../../components/ButtonAdd'
+import { ButtonRefresh } from '../../../components/ButtonRefresh'
 
 export const Shopping = () => {
     const { getElements: getShopping, data, isLoading, error } = useGet('/api/v1/shopping')
@@ -89,7 +92,7 @@ export const Shopping = () => {
         },
         {
             header: 'Fecha',
-            cell: (item) => item.purchaseDate
+            cell: (item) => formatDate(item.purchaseDate)
         }
     ]
 
@@ -107,16 +110,12 @@ export const Shopping = () => {
 
     return (
         <div>
-            <div className='flex justify-between bg-white rounded-lg px-4 py-2 mb-2'>
+            <div className='flex justify-between items-center bg-white rounded-lg px-5 py-2.5 mb-2'>
                 <TitleSection partOne='Comp' partTwo='ras' />
 
                 <div className='flex justify-center items-center space-x-5'>
-                    <button onClick={openCreate} className='text-green-500 cursor-pointer'>
-                        <CirclePlus />
-                    </button>
-                    <button onClick={refreshShopping} className='text-sky-400 cursor-pointer'>
-                        <RefreshCw className='hover:animate-spin' />
-                    </button>
+                    <ButtonAdd functionOpenModal={openCreate} />
+                    <ButtonRefresh functionRefresh={refreshShopping} />
                 </div>
             </div>
 
@@ -157,6 +156,6 @@ export const Shopping = () => {
                     </div>
                 </form>
             </Modal>
-        </div>
+        </div >
     )
 }

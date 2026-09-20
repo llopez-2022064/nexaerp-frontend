@@ -55,7 +55,7 @@ export const Reports = () => {
                 <TitleSection partOne='Repor' partTwo='tes' />
 
                 <p className="mt-1 text-sm text-slate-500">
-                    Selecciona un reporte y el formato que deseas generar.
+                    Seleccione un reporte y el formato que desee generar
                 </p>
             </header>
 

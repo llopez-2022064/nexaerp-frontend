@@ -52,9 +52,9 @@ export const MainLayout = () => {
             requiredPermissions: [PERMISSIONS.VIEW_INVENTORY]
         },
         {
-            name: 'Historial de Inventario',
+            name: 'Historial de Movimientos',
             icon: ClipboardClock,
-            url: '/inventory/history',
+            url: '/history',
             requiredPermissions: [PERMISSIONS.VIEW_INVENTORY_HISTORY]
         },
         {

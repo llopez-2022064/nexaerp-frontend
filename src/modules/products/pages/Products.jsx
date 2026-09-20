@@ -14,6 +14,8 @@ import { gooeyToast } from 'goey-toast'
 import { useAuthStore } from '../../auth/store/useAuthStore'
 import { hasPermission, PERMISSIONS } from '../../../config/permissions'
 import { TitleSection } from '../../../components/TitleSection'
+import { ButtonAdd } from '../../../components/ButtonAdd'
+import { ButtonRefresh } from '../../../components/ButtonRefresh'
 
 export const Products = () => {
     const { getElements, data } = useGet('/api/v1/products')
@@ -215,18 +217,14 @@ export const Products = () => {
 
     return (
         <div>
-            <div className='flex justify-between bg-white rounded-lg px-4 py-2 mb-2'>
+            <div className='flex justify-between items-center bg-white rounded-lg px-5 py-2.5 mb-2'>
                 <TitleSection partOne='Produc' partTwo='tos' />
 
                 <div className='flex justify-center items-center space-x-5'>
                     {canCreateProduct && (
-                        <button onClick={openCreate} className='text-green-500 cursor-pointer'>
-                            <CirclePlus />
-                        </button>
+                        <ButtonAdd functionOpenModal={openCreate} />
                     )}
-                    <button onClick={refreshProducts} className='text-sky-400 cursor-pointer'>
-                        <RefreshCw className='hover:animate-spin' />
-                    </button>
+                    <ButtonRefresh functionRefresh={refreshProducts} />
                 </div>
             </div>
 
